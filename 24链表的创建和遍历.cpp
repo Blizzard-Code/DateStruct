@@ -9,6 +9,14 @@ typedef struct Node
 
 PNODE create_list();
 void traverse_list(PNODE pHead);
+bool is_empty(PNODE pHead);
+int length_list(PNODE pHead);
+//在pHead指向的链表的第pos个节点的前面插入一个新的结点  该节点的值是val,并且pos从1开始
+bool insert_list(PNODE pHead, int pos, int val);
+bool delete_list(PNODE pHead, int pos, int* pVal);
+//排序链表
+void sort_list(PNODE pHead);
+
 
 int main()
 {
@@ -16,7 +24,29 @@ int main()
 
 	pHead = create_list();//创建一个非循环单链表，并将该链表的头结点的地址赋给pHead
 	traverse_list(pHead);
+	int val;
+	/*insert_list(pHead, 4, 33);
+	traverse_list(pHead);*/
 
+	if (delete_list(pHead, 3, &val))
+		printf("删除成功,删除元素为：%d\n", val);
+	else
+		printf("删除失败\n");
+	traverse_list(pHead);
+	/*if (is_empty(pHead))
+		printf("链表为空");
+	else
+	{
+		printf("链表不空");
+	}*/
+
+
+	/*int len = length_list(pHead);
+	printf("链表长度为%d\n", len);
+	sort_list(pHead); 
+	traverse_list(pHead);*/
+
+	
 }
 
 //创建一个非循环单链表，
@@ -66,10 +96,100 @@ void traverse_list(PNODE pHead)
 	
 	while (NULL != p)//判断p指向的节点的
 	{
-		int i = 1;
-		printf("第%d个节点的数据是%d\n",i, p->data);
-		i++;
+		
+		printf("%d\n", p->data);
 		p = p->pNext;
 	}
 	printf("\n");
+}
+
+bool is_empty(PNODE pHead)
+{
+	if (pHead->pNext == NULL)
+		return true;
+	else
+		return false;
+}
+
+int length_list(PNODE pHead)
+{
+	PNODE p = pHead->pNext;
+	int len=0;
+	while (NULL!=p)
+	{
+		len++;
+		p = p->pNext;
+	}
+	return len;
+}
+
+void sort_list(PNODE pHead)
+{
+	int i, j, t;
+	int len = length_list(pHead);
+	PNODE p, q;
+	for (i=0,p=pHead->pNext; i< len - 1;i++, p=p->pNext)
+	{
+		for (j = i + 1, q = p->pNext; j < len; j++,q=q->pNext)//下一个元素
+		{
+			if (p->data > q->data)//类似域a[i] > a[j]
+			{
+				t = p->data; //类似域t=a[i];
+				p->data = q->data;//a[i]=a[j]
+				q->data = t;//a[j]=t
+			}
+
+		}
+	}
+}
+
+//在pHead指向的链表的第pos个节点的前面插入一个新的结点  该节点的值是val,并且pos从1开始
+bool insert_list(PNODE pHead, int pos, int val)
+{
+	int i = 0;
+	PNODE p = pHead;
+	//判断越界
+	while (NULL!=p && i<pos-1)
+	{
+		p = p->pNext;
+		++i;
+	}
+	//判断负数
+	if (i>pos-1 || NULL == p)
+		return false;
+
+	PNODE pNew = (PNODE)malloc(sizeof(NODE));
+	if (NULL==pNew)
+	{
+		printf("动态分配内存失败\n");
+		exit(-1);
+	}
+	pNew->data = val;
+	PNODE q = p->pNext;
+	p->pNext = pNew;
+	pNew->pNext = q;
+	return true;
+
+}
+bool delete_list(PNODE pHead, int pos, int* pVal)
+{
+	int i = 0;
+	PNODE p = pHead;
+
+	while (NULL != p->pNext && i < pos - 1)
+	{
+		p = p->pNext;
+		++i;
+	}
+	if (i > pos - 1 || NULL == p->pNext)
+		return false;
+
+	PNODE q = p->pNext;
+	*pVal = q->data;
+	//删除p节点后的节点
+	p->pNext = p->pNext->pNext;
+	free(q);
+	q = NULL;
+	return true;
+
 }

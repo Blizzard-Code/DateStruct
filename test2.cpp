@@ -117,7 +117,7 @@ bool append_Sqlist(SEQ *sq,int val)
 	 int j;
 	 for (i = 0; i < sq->count; i++)
 	 {
-		 for (int j=i+1;j<sq->count;j++)
+		 for (j=i+1;j<sq->count;j++)
 		 {
 			 if (sq->arr[i] > sq->arr[j])
 			 {
