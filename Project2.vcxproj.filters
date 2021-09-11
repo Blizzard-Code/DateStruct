@@ -57,5 +57,11 @@
     <ClCompile Include="33栈.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="stack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="47循环队列.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
