@@ -6,7 +6,7 @@
 //把a柱上第n个盘子直接移动到c
 //把b柱子上的n-1个盘子借助a移到c
 void hannuota(int n, char A, char B, char C)
-//A 放盘子， B借助，C最后放的柱子
+//A 放盘子， B借助，C的柱子
 {
 	/*如果是1个盘子，
 		直接将A柱子上盘子，移倒C

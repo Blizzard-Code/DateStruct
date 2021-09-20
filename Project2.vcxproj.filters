@@ -84,5 +84,8 @@
     <ClCompile Include="57汉诺塔.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="75链式二叉树.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
