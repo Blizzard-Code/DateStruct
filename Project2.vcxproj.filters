@@ -81,5 +81,8 @@
     <ClCompile Include="1+2+3递归.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="57汉诺塔.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
