@@ -10,7 +10,7 @@ struct Student
 //     // int j=20;
 //     // return j;
 // }
-struct Student* CreateStudent(void)
+struct Student* CreateStudent()
 {
     struct Student* p = (struct Student*)malloc(sizeof(struct Student));
     // p->age=18;

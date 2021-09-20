@@ -63,5 +63,23 @@
     <ClCompile Include="47循环队列.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TEST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="源d2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testa.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="52阶乘的循环.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="52阶乘的递归实现.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="1+2+3递归.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
